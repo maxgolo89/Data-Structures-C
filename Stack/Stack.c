@@ -11,7 +11,7 @@ void* push(Stack* stack, void* data)
 	newNode->data = data;
 	newNode->next = stack->head;
 	stack->head = newNode;
-
+	stack->size++;
 	return data;
 }
 
@@ -24,6 +24,7 @@ void* pop(Stack* stack)
 
 	Node* popedNode = stack->head;
 	stack->head = stack->head->next;
+	stack->size--;
 
 	return popedNode->data;
 }
