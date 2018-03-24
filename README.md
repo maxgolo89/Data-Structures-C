@@ -1,2 +1,2 @@
 # Data-Structures-C
-Practice repository
+Data Structures Practice Repository.
