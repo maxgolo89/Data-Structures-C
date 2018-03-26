@@ -8,14 +8,19 @@ typedef struct entry_t {
 	struct entry_t* chained;
 } Entry;
 
-
 typedef struct hashtable_t {
-	Entry* table;
+	Entry** table;
 	int size;
+	int capacity;
 } HashTable;
 
-void insert(int key, void* data);
-void* search(int key);
-void remove(int key);
+void insert(HashTable* hashTable, int key, void* data);
+void insertEntry(HashTable* hashTable, Entry* entry);
+void* search(HashTable* hashTable, int key);
+void deleteEntry(HashTable* hashTable, int key);
+int hash(HashTable* hashTable, int key);
+void resize(HashTable* hashTable);
+Entry* initEntry(int key, void* data);
+HashTable* initHashTable();
 
 #endif
